@@ -6,6 +6,7 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
@@ -28,7 +29,14 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+group :develoment,:test do
+	if RUBY_VERSION =~/1.9/
+		gem 'ruby-debug19'
+	else
+		gem 'ruby-debug'
+	end
+end
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
